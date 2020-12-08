@@ -40,6 +40,7 @@ def main():
         obj_list = make_path_obj(path_list)
         my_cleaner = cleaner.Cleaner()
         num_files = sum([len(files) for path in path_list for p, _, files in os.walk(path)])
+        num_files += len([file for file in path_list if Path(file).is_file()])
         print(f'Files found: {num_files}')
         print(''.center(COLUMNS, '='))
         while True:
