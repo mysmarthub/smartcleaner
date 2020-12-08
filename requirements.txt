@@ -1,0 +1,2 @@
+mycleaner
+pyside2
