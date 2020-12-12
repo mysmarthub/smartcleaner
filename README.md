@@ -1,6 +1,6 @@
 Smart Cleaner
 ==============
-A graphical, cross-platform application for mashing, zeroing, and deleting files.
+Graphics and console utility for wiping, zeroing, deleting files.
 --------------
 >Smart Cleaner is a cross-platform application for zeroing, 
 > mashing and deleting files. Delete a folder. Uses Python 3, 
@@ -40,7 +40,7 @@ install:
 
 `pip install smartcleaner`
 
-	Use:
+	Use Gui or console:
 	---
 	
 	`smartcleaner`

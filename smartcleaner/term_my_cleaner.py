@@ -1,3 +1,13 @@
+# -----------------------------------------------------------------------------
+# Copyright © 2020 Aleksandr Suvorov
+# Licensed under the terms of the MIT License
+# (see LICENSE.txt for details)
+# -----------------------------------------------------------------------------
+# Aleksandr Suvorov
+# Email: myhackband@yandex.ru
+# Github: https://github.com/mysmarthub/mycleaner/
+# -----------------------------------------------------------------------------
+"""Console utility for destroying, zeroing, and deleting files."""
 import sys
 import shutil
 import os
@@ -21,9 +31,8 @@ def make_path_obj(path_list):
 def logo_dec(func):
     def deco():
         print('My Cleaner'.center(COLUMNS, '='))
-        print('Utility for mashing, zeroing, deleting files'.center(COLUMNS, ' '))
         print('Aleksandr Suvorov | myhackband@ya.ru'.center(COLUMNS, '-'))
-        print(''.center(COLUMNS, '='))
+        print('Utility for mashing, zeroing, deleting files'.center(COLUMNS, '='))
         func()
         print(''.center(COLUMNS, '='))
         print('The program is complete'.center(COLUMNS, '-'))
@@ -73,6 +82,10 @@ def main():
             break
     else:
         print('Error! No paths found')
+        print('Help'.center(COLUMNS, '='))
+        print('Pass the required file or folder paths as a parameter at startup. Example:')
+        print('mycleaner /path/ /path/file.file')
+        print('python term_my_cleaner.py /path/ /path/file.file')
 
 
 if __name__ == '__main__':
