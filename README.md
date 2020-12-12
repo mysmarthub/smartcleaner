@@ -31,8 +31,6 @@ Help the project financially:
 
     Sberbank Russia: 4276 4417 5763 7686
 
->To erase / delete some files, you need to run as an administrator.
-
 ---
 
 install:
@@ -40,9 +38,11 @@ install:
 
 `pip install smartcleaner`
 
-	Use Gui or console:
-	---
+Use Gui or console:
+---
 	
 	`smartcleaner`
 	
 	`term_my_cleaner [path]`
+
+>To erase / delete some files, you need to run as an administrator.
