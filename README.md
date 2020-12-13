@@ -1,7 +1,15 @@
-Smart Cleaner
+Smart Cleaner Package
 ==============
+---
 Graphics and console utility for wiping, zeroing, deleting files.
 --------------
+---
+>Github: https://github.com/mysmarthub/smartcleaner
+
+>Pypi: https://pypi.org/project/smartcleaner/
+
+---
+
 >Smart Cleaner is a cross-platform application for zeroing, 
 > mashing and deleting files. Delete a folder. Uses Python 3, 
 > Pyside2, and mycleaner. File mashing in 
@@ -19,8 +27,6 @@ Developer
     Author: Alexander Suvorov
 
     Support: myhackband@yandex.ru
-
-    Github: https://github.com/mysmarthub/smartcleaner
 
 ---
 
