@@ -1,4 +1,4 @@
-Smart Cleaner Package
+Smart Cleaner Package v1.0.6
 ==============
 ---
 Graphics and console utility for wiping, zeroing, deleting files.

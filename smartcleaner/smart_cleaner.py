@@ -107,7 +107,7 @@ class SmartCleaner(QThread):
                    f'| Errors: {self.num_errors}'
 
     def del_dirs(self):
-        for path in (self.path_data.get_folders()):
+        for path in (self.path_data.get_dirs()):
             self.emit_msg(f'Deleting a folder: {path}')
             if os.path.exists(path):
                 if self.cleaner.del_dir(path):
