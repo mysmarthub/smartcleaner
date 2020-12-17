@@ -1,2 +1,2 @@
-mycleaner
-pyside2
+mycleaner==1.1.5
+pyside2==5.15.2

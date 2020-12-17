@@ -12,7 +12,7 @@
 # Website: https://www.smart-py.ru
 # Github: https://github.com/mysmarthub/
 # -----------------------------------------------------------------------------
-"""SmartCleaner is a cross-platform application for zeroing, mashing, and deleting files"""
+"""Smart Cleaner is a Gui utility to destroy, zeroing, deleting files"""
 import os
 import sys
 import webbrowser
@@ -138,7 +138,7 @@ class MyWindow(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        self.setWindowTitle('Smart Cleaner - data wiping program | Aleksandr Suvorov | myhackband@ya.ru')
+        self.setWindowTitle('Smart Cleaner - data destruction software | Aleksandr Suvorov | myhackband@ya.ru')
 
         self.label_donate = QLabel('Donate: SberBank - 4276 4417 5763 7686 | Yandex Money: myhackband@ya.ru')
         self.label_donate.setAlignment(Qt.AlignCenter)
@@ -183,7 +183,7 @@ class MyWindow(QWidget):
         self.label_cons = QLabel('Information console:')
 
         self.text_browser = QTextBrowser()
-        self.text_browser.setText(f'Smart Cleaner v1.0 \nWelcome to the program for mashing, '
+        self.text_browser.setText(f'Smart Cleaner v1.0.7 \nWelcome to the program for mashing, '
                                   f'zeroing and deleting data.')
 
         self.btn_console_clear = QPushButton('Reset')
@@ -263,7 +263,7 @@ class MyWindow(QWidget):
         self.smart_cleaner.finished.connect(self.at_finish)
 
     def clear_console(self):
-        msg = f'Smart Cleaner v1.0 \nWelcome to the program for mashing, zeroing and deleting data.'
+        msg = f'Smart Cleaner v1.0.7 \nWelcome to the program for mashing, zeroing and deleting data.'
         self.lcd_dirs.display(0)
         self.lcd_files.display(0)
         self.lcd_errors.display(0)

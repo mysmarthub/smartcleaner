@@ -1,8 +1,14 @@
-Smart Cleaner Package v1.0.6
+Smart Cleaner
 ==============
 ---
-Graphics and console utility for wiping, zeroing, deleting files.
---------------
+
+    Gui utilities for destroying,
+        zeroing, and deleting files.
+    -------------------------------------------------------
+    The program allows you to destroy files
+        zero data and delete files,
+        for complete or partial difficulty in
+        restoring them after deletion.
 ---
 >Github: https://github.com/mysmarthub/smartcleaner
 
@@ -39,16 +45,28 @@ Help the project financially:
 
 ---
 
-install:
+Use and install:
 ---
 
 `pip install smartcleaner`
 
-Use Gui or console:
----
-	
-	`smartcleaner`
-	
-	`term_my_cleaner [path]`
+`smartcleaner`
 
 >To erase / delete some files, you need to run as an administrator.
+
+`sudo pip install smartcleaner`
+
+`sudo smartcleaner`
+
+---
+
+`git clone https://github.com/mysmarthub/smartcleaner.git`
+
+`pip install -r requirements.txt`
+
+    
+`python smartcleaner/smartcleaner/smart_cleaner.py`
+
+>To erase / delete some files, you need to run as an administrator.
+    
+`sudo python smartcleaner/smartcleaner/smart_cleaner.py`

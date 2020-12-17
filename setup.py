@@ -16,7 +16,7 @@ PACKAGE = "smartcleaner"
 VERSION = __import__(PACKAGE).__version__
 AUTHOR = __import__(PACKAGE).__author__
 AUTHOR_EMAIL = "myhackband@yandex.ru"
-DESCRIPTION = "Graphics and console utility for wiping, zeroing, deleting files." \
+DESCRIPTION = "Gui utility to destroy, zeroing, deleting files." \
               " Aleksandr Suvorov | myhackband@yandex.ru | Donate: 4276 4417 5763 7686"
 NAME = "smartcleaner"
 URL = "https://github.com/mysmarthub/smartcleaner"
@@ -59,8 +59,6 @@ setup(
     zip_safe=False,
     keywords=KEYWORDS,
     entry_points={
-        'console_scripts':
-            ['termcleaner = smartcleaner.term_my_cleaner:main'],
         'gui_scripts': 
             ['smartcleaner = smartcleaner.smart_cleaner:main']
         }
