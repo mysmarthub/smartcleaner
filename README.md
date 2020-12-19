@@ -1,6 +1,5 @@
 Smart Cleaner
 ==============
-
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/smartcleaner?label=pypi%20downloads)](https://pypi.org/project/smartcleaner)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mysmarthub/smartcleaner)
 ![GitHub](https://img.shields.io/github/license/mysmarthub/smartcleaner)
@@ -80,3 +79,7 @@ Use and install:
 >To erase / delete some files, you need to run as an administrator.
     
 `sudo python smartcleaner/smartcleaner/smart_cleaner.py`
+
+---
+[![Download Smart Cleaner](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/smartcleaner/files/latest/download)
+[![Download Smart Cleaner](https://img.shields.io/sourceforge/dt/smartcleaner.svg)](https://sourceforge.net/projects/smartcleaner/files/latest/download)
