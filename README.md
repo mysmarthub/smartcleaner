@@ -1,5 +1,15 @@
 Smart Cleaner
 ==============
+
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/smartcleaner?label=pypi%20downloads)](https://pypi.org/project/smartcleaner)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mysmarthub/smartcleaner)
+![GitHub](https://img.shields.io/github/license/mysmarthub/smartcleaner)
+![GitHub Repo stars](https://img.shields.io/github/stars/mysmarthub/smartcleaner?style=social)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/mysmarthub/smartcleaner)
+[![PyPI](https://img.shields.io/pypi/v/smartcleaner)](https://pypi.org/project/smartcleaner)
+![PyPI - Format](https://img.shields.io/pypi/format/smartcleaner)
+
+
 ---
 
     Gui utilities for destroying,

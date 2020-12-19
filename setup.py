@@ -22,7 +22,7 @@ NAME = "smartcleaner"
 URL = "https://github.com/mysmarthub/smartcleaner"
 LICENSE = 'MIT'
 LONG_DESCRIPTION = open(join(dirname(__file__), 'README.md')).read()
-INSTALL_REQUIRES = ['mycleaner', 'pyside2']
+INSTALL_REQUIRES = open(join(dirname(__file__), 'requirements.txt')).read()
 PLATFORM = ['Linux, Windows']
 CLASSIFIERS = [
     "Programming Language :: Python :: 3",

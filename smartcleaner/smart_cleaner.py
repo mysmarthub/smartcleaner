@@ -183,7 +183,7 @@ class MyWindow(QWidget):
         self.label_cons = QLabel('Information console:')
 
         self.text_browser = QTextBrowser()
-        self.text_browser.setText(f'Smart Cleaner v1.0.7 \nWelcome to the program for mashing, '
+        self.text_browser.setText(f'Smart Cleaner v1.0.8 \nWelcome to the program for mashing, '
                                   f'zeroing and deleting data.')
 
         self.btn_console_clear = QPushButton('Reset')
