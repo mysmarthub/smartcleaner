@@ -8,7 +8,16 @@ Smart Cleaner
 [![PyPI](https://img.shields.io/pypi/v/smartcleaner)](https://pypi.org/project/smartcleaner)
 ![PyPI - Format](https://img.shields.io/pypi/format/smartcleaner)
 
+[![Download Smart Cleaner](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/smartcleaner/files/latest/download)
+[![Download Smart Cleaner](https://img.shields.io/sourceforge/dt/smartcleaner.svg)](https://sourceforge.net/projects/smartcleaner/files/latest/download)
 
+---
+
+Smart Cleaner Windows version download:
+---
+
+[![Download Smart Cleaner (For Windows)](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/smart-cleaner-for-windows/files/latest/download)
+[![Download Smart Cleaner (For Windows)](https://img.shields.io/sourceforge/dt/smart-cleaner-for-windows.svg)](https://sourceforge.net/projects/smart-cleaner-for-windows/files/latest/download)
 ---
 
     Gui utilities for destroying,
@@ -81,5 +90,3 @@ Use and install:
 `sudo python smartcleaner/smartcleaner/smart_cleaner.py`
 
 ---
-[![Download Smart Cleaner](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/smartcleaner/files/latest/download)
-[![Download Smart Cleaner](https://img.shields.io/sourceforge/dt/smartcleaner.svg)](https://sourceforge.net/projects/smartcleaner/files/latest/download)
