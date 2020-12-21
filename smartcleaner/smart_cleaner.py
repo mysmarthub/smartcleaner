@@ -5,13 +5,6 @@
 # Licensed under the terms of the MIT License
 # (see LICENSE.txt for details)
 # -----------------------------------------------------------------------------
-# Aleksandr Suvorov
-# Yandex Money: https://money.yandex.ru/to/4100110928527458
-# Sberbank Russia: 4276 4417 5763 7686
-# Email: myhackband@yandex.ru
-# Website: https://www.smart-py.ru
-# Github: https://github.com/mysmarthub/
-# -----------------------------------------------------------------------------
 """Smart Cleaner is a Gui utility to destroy, zeroing, deleting files"""
 import os
 import sys
@@ -249,7 +242,7 @@ class MyWindow(QWidget):
 
         self.smart_cleaner = SmartCleaner()
 
-        self.btn_donate.clicked.connect(lambda: webbrowser.open('https://money.yandex.ru/to/4100110928527458'))
+        self.btn_donate.clicked.connect(lambda: webbrowser.open('https://yoomoney.ru/to/4100115206129186'))
         self.btn_open_url.clicked.connect(lambda: webbrowser.open('https://smart-py.ru'))
         self.btn_console_clear.clicked.connect(self.clear_console)
         self.btn_add_folder.clicked.connect(self.add_dir)

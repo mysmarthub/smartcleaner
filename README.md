@@ -27,6 +27,10 @@ Smart Cleaner Windows version download:
 
 ---
 
+![Smart Cleaner](https://github.com/mysmarthub/smartcleaner/raw/master/images/logo.png)
+
+---
+
 Help the project financially:
 ---
 >Yandex Money:
