@@ -6,11 +6,11 @@ Smart Cleaner
 >Created: Aleksandr Suvorov
 
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/smartcleaner?label=pypi%20downloads)](https://pypi.org/project/smartcleaner)
-![GitHub](https://img.shields.io/github/license/mysmarthub/smartcleaner)
-![GitHub Repo stars](https://img.shields.io/github/stars/mysmarthub/smartcleaner?style=social)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/mysmarthub/smartcleaner)](https://github.com/mysmarthub/smartcleaner)
 [![PyPI](https://img.shields.io/pypi/v/smartcleaner)](https://pypi.org/project/smartcleaner)
-![PyPI - Format](https://img.shields.io/pypi/format/smartcleaner)
+[![PyPI - Format](https://img.shields.io/pypi/format/smartcleaner)](https://pypi.org/project/smartcleaner)
+[![GitHub](https://img.shields.io/github/license/mysmarthub/smartcleaner)](https://github.com/mysmarthub/smartcleaner)
+[![GitHub Repo stars](https://img.shields.io/github/stars/mysmarthub/smartcleaner?style=social)](https://github.com/mysmarthub/smartcleaner)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/mysmarthub/smartcleaner)](https://github.com/mysmarthub/smartcleaner)
 
 [![Download Smart Cleaner](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/smartcleaner/files/latest/download)
 [![Download Smart Cleaner](https://img.shields.io/sourceforge/dt/smartcleaner.svg)](https://sourceforge.net/projects/smartcleaner/files/latest/download)
