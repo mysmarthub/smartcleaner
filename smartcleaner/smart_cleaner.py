@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # -----------------------------------------------------------------------------
-# Copyright © 2020 Aleksandr Suvorov
-# Licensed under the terms of the MIT License
-# (see LICENSE.txt for details)
+# Licensed under the terms of the BSD 3-Clause License
+# (see LICENSE for details)
+# Copyright © 2021 Aleksandr Suvorov
 # -----------------------------------------------------------------------------
 """Smart Cleaner is a Gui utility to destroy, zeroing, deleting files"""
 import os
@@ -18,6 +18,9 @@ from PySide2.QtWidgets import (QApplication, QFileDialog, QMessageBox, QLabel, Q
 from PySide2.QtCore import QThread, Signal
 
 from mycleaner import cleaner, smart
+
+
+VERSION = '1.0.9'
 
 
 class SmartCleaner(QThread):
@@ -131,12 +134,12 @@ class MyWindow(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        self.setWindowTitle('Smart Cleaner - data destruction software | Aleksandr Suvorov | myhackband@ya.ru')
+        self.setWindowTitle('Smart Cleaner - utility to destroy, zeroing, deleting files')
 
-        self.label_donate = QLabel('Donate: SberBank - 4276 4417 5763 7686 | Yandex Money: myhackband@ya.ru')
+        self.label_donate = QLabel('Copyright (c) 2021, Aleksandr Suvorov | Donate: 4048 4150 0400 5852')
         self.label_donate.setAlignment(Qt.AlignCenter)
 
-        self.label_logo = QLabel('Smart Cleaner<sup> 1.0</sup>')
+        self.label_logo = QLabel(f'Smart Cleaner<sup> {VERSION}</sup>')
         self.label_logo.setAlignment(Qt.AlignCenter)
         self.label_logo.setStyleSheet('font-size: 48px;')
 
@@ -176,17 +179,15 @@ class MyWindow(QWidget):
         self.label_cons = QLabel('Information console:')
 
         self.text_browser = QTextBrowser()
-        self.text_browser.setText(f'Smart Cleaner v1.0.8 \nWelcome to the program for mashing, '
-                                  f'zeroing and deleting data.')
+        self.text_browser.setText(f'Smart Cleaner v{VERSION} \nUtility for overwriting, zeroing, and deleting files')
 
         self.btn_console_clear = QPushButton('Reset')
-        self.btn_donate = QPushButton('Donate | 4276 4417 5763 7686')
+        self.btn_donate = QPushButton('Donate | Sberbank 4276 4417 5763 7686')
         self.btn_donate.setToolTip('We will be grateful for any financial support.\nThis will help the program '
                                    'develop and remain free.\nThanks!')
-        self.btn_open_url = QPushButton('Website')
+        self.btn_exit = QPushButton('Exit')
 
         self.h_box3 = QHBoxLayout()
-        self.h_box3.addWidget(self.btn_open_url)
         self.h_box3.addWidget(self.btn_donate)
         self.h_box3.addStretch(1)
         self.h_box3.addWidget(self.btn_console_clear)
@@ -225,6 +226,7 @@ class MyWindow(QWidget):
         self.h_box5.addWidget(self.btn_shred_files)
         self.h_box5.addWidget(self.btn_zero_files)
         self.h_box5.addWidget(self.btn_del_files)
+        self.h_box5.addWidget(self.btn_exit)
 
         self.v_box = QVBoxLayout()
         self.v_box.addWidget(self.label_logo)
@@ -243,7 +245,6 @@ class MyWindow(QWidget):
         self.smart_cleaner = SmartCleaner()
 
         self.btn_donate.clicked.connect(lambda: webbrowser.open('https://yoomoney.ru/to/4100115206129186'))
-        self.btn_open_url.clicked.connect(lambda: webbrowser.open('https://smart-py.ru'))
         self.btn_console_clear.clicked.connect(self.clear_console)
         self.btn_add_folder.clicked.connect(self.add_dir)
         self.btn_add_files.clicked.connect(self.add_files)
@@ -251,12 +252,13 @@ class MyWindow(QWidget):
         self.btn_shred_files.clicked.connect(self.shred_start)
         self.btn_zero_files.clicked.connect(self.zeroing_start)
         self.btn_del_files.clicked.connect(self.delete_start)
+        self.btn_exit.clicked.connect(self.close)
         self.smart_cleaner.signal.connect(self.update_information)
         self.smart_cleaner.started.connect(self.at_start)
         self.smart_cleaner.finished.connect(self.at_finish)
 
     def clear_console(self):
-        msg = f'Smart Cleaner v1.0.7 \nWelcome to the program for mashing, zeroing and deleting data.'
+        msg = f'Smart Cleaner v{VERSION} \nUtility for overwriting, zeroing, and deleting files.'
         self.lcd_dirs.display(0)
         self.lcd_files.display(0)
         self.lcd_errors.display(0)
@@ -370,7 +372,7 @@ class MyWindow(QWidget):
                                      QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if reply == QMessageBox.Yes:
             self.hide()
-            self.smart_cleaner.wait(1000)
+            self.smart_cleaner.wait(3000)
             event.accept()
         else:
             event.ignore()

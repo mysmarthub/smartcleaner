@@ -1,13 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # -----------------------------------------------------------------------------
-# Copyright © 2020 Aleksandr Suvorov
-# Licensed under the terms of the MIT License
-# (see LICENSE.txt for details)
-# -----------------------------------------------------------------------------
-# Email: myhackband@yandex.ru
-# Github: https://github.com/mysmarthub/mycleaner/
-# PyPi: https://pypi.org/project/mycleaner/
+# Licensed under the terms of the BSD 3-Clause License
+# (see LICENSE for details)
+# Copyright © 2021 Aleksandr Suvorov
 # -----------------------------------------------------------------------------
 from setuptools import setup, find_packages
 from os.path import join, dirname
@@ -17,17 +13,29 @@ VERSION = __import__(PACKAGE).__version__
 AUTHOR = __import__(PACKAGE).__author__
 AUTHOR_EMAIL = "myhackband@yandex.ru"
 DESCRIPTION = "Gui utility to destroy, zeroing, deleting files." \
-              " Aleksandr Suvorov | myhackband@yandex.ru | Donate: 4276 4417 5763 7686"
+              " Aleksandr Suvorov | https://github.com/mysmarthub/smartcleaner | Donate: 4276 4417 5763 7686 | 4048 " \
+              "4150 0400 5852 "
 NAME = "smartcleaner"
 URL = "https://github.com/mysmarthub/smartcleaner"
-LICENSE = 'MIT'
+LICENSE = 'BSD 3-Clause'
 LONG_DESCRIPTION = open(join(dirname(__file__), 'README.md')).read()
 INSTALL_REQUIRES = open(join(dirname(__file__), 'requirements.txt')).read()
 PLATFORM = ['Linux, Windows']
 CLASSIFIERS = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: BSD License",
     "Operating System :: OS Independent",
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities"
 ]
 KEYWORDS = [
     'smart cleaner',
@@ -59,7 +67,7 @@ setup(
     zip_safe=False,
     keywords=KEYWORDS,
     entry_points={
-        'gui_scripts': 
+        'gui_scripts':
             ['smartcleaner = smartcleaner.smart_cleaner:main']
-        }
+    }
 )

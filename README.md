@@ -1,9 +1,11 @@
 Smart Cleaner
 ==============
 
-    Gui utilities for destroying, zeroing, and deleting files.
+>Gui utilities for destroying, zeroing, and deleting files.
 
 >Created: Aleksandr Suvorov
+
+---
 
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/smartcleaner?label=pypi%20downloads)](https://pypi.org/project/smartcleaner)
 [![PyPI](https://img.shields.io/pypi/v/smartcleaner)](https://pypi.org/project/smartcleaner)
@@ -17,17 +19,15 @@ Smart Cleaner
 
 ---
 
-Smart Cleaner Windows version download:
+Smart Cleaner (Windows version) download smart_cleaner.exe:
 ---
 
 [![Download Smart Cleaner (For Windows)](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/smart-cleaner-for-windows/files/latest/download)
 [![Download Smart Cleaner (For Windows)](https://img.shields.io/sourceforge/dt/smart-cleaner-for-windows.svg)](https://sourceforge.net/projects/smart-cleaner-for-windows/files/latest/download)
 
-[Github - Smart Cleaner (For Windorws)](https://github.com/mysmarthub/winsmartcleaner)
-
 ---
 
-![Smart Cleaner](https://github.com/mysmarthub/smartcleaner/raw/master/images/logo.png)
+![Smart Cleaner](https://github.com/mysmarthub/smartcleaner/raw/master/images/smart_cleaner_logo.png)
 
 ---
 
@@ -46,23 +46,23 @@ https://paypal.me/myhackband
 
 Description
 ---
-    Smart Cleaner
-    -------------------------------------------------------
-    The program allows you to destroy files
-        zero data and delete files,
-        for complete or partial difficulty in
-        restoring them after deletion.
+
+>Smart Cleaner 
+> The program allows you to destroy files 
+> zero data and delete files, 
+> for complete or partial difficulty in 
+> restoring them after deletion.
 
 >Smart Cleaner is a cross-platform application for zeroing, 
-mashing and deleting files. Delete a folder. Uses Python 3, 
-Pyside2, and mycleaner. File mashing in 
-Windows is under development and research.
+> mashing and deleting files. Delete a folder. Uses Python 3, 
+> Pyside2, and [mycleaner](https://github.com/mysmarthub/mycleaner). File mashing in 
+> Windows is under development and research.
 
 >If you add the entire folder, all the attached files and 
-folders will be added recursively. 
-Be very careful when resetting or erasing files, 
-as it will be very difficult or impossible to 
-restore them. Works successfully on Linux (all), Windows (all).
+> folders will be added recursively. 
+> Be very careful when resetting or erasing files, 
+> as it will be very difficult or impossible to 
+> restore them. Works successfully on Linux (all), [Windows](https://sourceforge.net/projects/smart-cleaner-for-windows/files/latest/download) (all).
 ---
 
 Help:
@@ -72,7 +72,7 @@ Help:
 
 `smartcleaner`
 
->To erase / delete some files, you need to run as an administrator.
+>To erase/delete some files, you need to run as an administrator.
 
 `sudo pip install smartcleaner`
 
@@ -87,19 +87,23 @@ Help:
     
 `python smartcleaner/smartcleaner/smart_cleaner.py`
 
->To erase / delete some files, you need to run as an administrator.
-    
+>To erase/delete some files, you need to run as an administrator.
+
+`sudo pip install -r requirements.txt`
+
 `sudo python smartcleaner/smartcleaner/smart_cleaner.py`
 
 ---
 
 Links:
 ---
->[GitHub](https://github.com/mysmarthub/smartcleaner)
+>[GitHub Smart Cleaner](https://github.com/mysmarthub/smartcleaner)
 > 
->[PyPi](https://pypi.org/project/smartcleaner/)
+>[PyPi smartcleaner](https://pypi.org/project/smartcleaner/)
 > 
->[Sourceforge](https://sourceforge.net/projects/smartcleaner/files/latest/download)
+>[Smart Cleaner](https://sourceforge.net/projects/smartcleaner/files/latest/download)
+>
+>[Smart Cleaner (For Windows)](https://sourceforge.net/projects/smart-cleaner-for-windows/files/latest/download)
 ---
 
 Disclaimer of liability:
