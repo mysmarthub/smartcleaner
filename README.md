@@ -1,10 +1,18 @@
 Smart Cleaner
 ==============
 
->Gui utilities for destroying, zeroing, and deleting files.
+>Graphical utility for destroying, zeroing, and deleting files, 
+> to complicate or completely impossible to restore them.
 
->Created: Aleksandr Suvorov
+```
+-----------------------------------------------------------------------------
+Licensed under the terms of the BSD 3-Clause License
+(see LICENSE for details)
+https://github.com/mysmarthub
+Copyright © 2020-2021 Aleksandr Suvorov
+-----------------------------------------------------------------------------
 
+```
 ---
 
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/smartcleaner?label=pypi%20downloads)](https://pypi.org/project/smartcleaner)
@@ -36,43 +44,81 @@ Help the project financially:
 >Yandex Money:
 https://yoomoney.ru/to/4100115206129186
 
-    Visa:    4048 4150 0400 5852
+>Visa: `4048 4150 0400 5852`
 
-    Sberbank Russia: 4276 4417 5763 7686
+> Sberbank Russia: `4276 4417 5763 7686`
 
-https://paypal.me/myhackband
+> https://paypal.me/myhackband
 
 ---
 
-Description
+Description:
 ---
 
->Smart Cleaner 
-> The program allows you to destroy files 
-> zero data and delete files, 
-> for complete or partial difficulty in 
-> restoring them after deletion.
-
->Smart Cleaner is a cross-platform application for zeroing, 
-> mashing and deleting files. Delete a folder. Uses Python 3, 
-> Pyside2, and [mycleaner](https://github.com/mysmarthub/mycleaner). File mashing in 
-> Windows is under development and research.
-
->If you add the entire folder, all the attached files and 
-> folders will be added recursively. 
-> Be very careful when resetting or erasing files, 
-> as it will be very difficult or impossible to 
-> restore them. Works successfully on Linux (all), [Windows](https://sourceforge.net/projects/smart-cleaner-for-windows/files/latest/download) (all).
+Warning:
 ---
+> Be extremely careful when working with the utility. 
+> Destroyed data cannot be restored!
+> 
+> If you add a folder, all nested files in all nested folders 
+> will be destroyed recursively!
 
+The program allows you to:
+---
+0. Moving through the file system, add and exclude files 
+   and folders for further work with them.
+---
+1. Destroy files by multiple rewrites using shred on Linux, 
+  and the reset and delete method on Windows
+---
+2. Zeroing files, all information from the file is deleted, 
+   the file size is 0b (especially convenient for large files 
+   to speed up work, first zeroing, then destroying)
+---
+3. Reset + delete. Before deleting, 
+   all information in the file is erased, 
+   the file size becomes 0b, and then the file is deleted.
+---
+4. Deleting folders after destroying all files in them. 
+   (If raw files will remain in some folder, and the folder will not be deleted)
+---
+5. Displays the number of processed files, folders, and errors.
+---
+6. Displays information about the work and errors that occurred 
+   when working with files and folders in the information console.
+---
+7. Select the number of file overwrites.
+---
+> The program uses [Pyside2](https://github.com/PySide)
+
+> It is recommended to use Smart Cleaner on Linux systems. 
+> If you need to destroy files in Windows, 
+> you can boot from LiveUSB Linux, run Smart Cleaner, 
+> mount the desired disk (read + write) and destroy the files.
+> 
+> If you have Python installed on your Windows system, 
+> you can run Smart Cleaner or install it using pip 
+> (you will also need to install dependencies), 
+> you can also download [smart_cleaner.exe](https://sourceforge.net/projects/smart-cleaner-for-windows/files/latest/download), 
+> it does not require the installation of python and additional libraries. 
+> 
+> [smart_cleaner.exe](https://sourceforge.net/projects/smart-cleaner-for-windows/files/latest/download) it does not require installation, 
+> it is started by double-clicking. 
+> Some antivirus programs may show it as a threat, 
+> but the code is open and the file does not contain any threats, 
+> all this is because the utility goes through 
+> folders and performs actions with files.
+
+---
 Help:
 ---
+> You can install the program using pip or pip3:
 
-`pip install smartcleaner`
+> Install: `pip install smartcleaner` or `pip3 install smartcleaner`
+> 
+> Launch: `smartcleaner`
 
-`smartcleaner`
-
->To erase/delete some files, you need to run as an administrator.
+>To erase/delete some files, you need to run as an administrator:
 
 `sudo pip install smartcleaner`
 
@@ -80,16 +126,17 @@ Help:
 
 ---
 
+`sudo apt install git`
+
 `git clone https://github.com/mysmarthub/smartcleaner.git`
 
-`pip install -r requirements.txt`
-
+`pip install -r smartcleaner/requirements.txt`
     
-`python smartcleaner/smartcleaner/smart_cleaner.py`
+`python smartcleaner/smartcleaner/smart_cleaner.py` or `python3 smartcleaner/smartcleaner/smart_cleaner.py`
 
->To erase/delete some files, you need to run as an administrator.
+>To erase/delete some files, you need to run as an administrator:
 
-`sudo pip install -r requirements.txt`
+`sudo pip3 install -r requirements.txt`
 
 `sudo python smartcleaner/smartcleaner/smart_cleaner.py`
 

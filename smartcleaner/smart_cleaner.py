@@ -3,10 +3,15 @@
 # -----------------------------------------------------------------------------
 # Licensed under the terms of the BSD 3-Clause License
 # (see LICENSE for details)
-# Copyright © 2021 Aleksandr Suvorov
+# https://github.com/mysmarthub
+# Copyright © 2020-2021 Aleksandr Suvorov
 # -----------------------------------------------------------------------------
-"""Smart Cleaner is a Gui utility to destroy, zeroing, deleting files"""
+"""Graphical utility for destroying, zeroing, and deleting files,
+
+to complicate or completely impossible to restore them.
+"""
 import os
+import shlex
 import sys
 import webbrowser
 
@@ -17,10 +22,211 @@ from PySide2.QtWidgets import (QApplication, QFileDialog, QMessageBox, QLabel, Q
                                QSpinBox, QCheckBox, QTextBrowser, QLCDNumber, QListWidget, QWidget, QAbstractItemView)
 from PySide2.QtCore import QThread, Signal
 
-from mycleaner import cleaner, smart
+
+VERSION = '1.1.0'
 
 
-VERSION = '1.0.9'
+class PathObj:
+    """Creates a path object for the file or folder."""
+
+    @staticmethod
+    def files_path_gen(path):
+        return (os.path.join(p, file) for p, _, files in os.walk(path) for file in files)
+
+    @staticmethod
+    def dirs_path_gen(path):
+        return (os.path.join(p, d) for p, dirs, _ in os.walk(path) for d in dirs)
+
+    @staticmethod
+    def get_num_of_dirs(path):
+        return sum([len(dirs) for _, dirs, _ in os.walk(path)])
+
+    @staticmethod
+    def get_num_of_files(path):
+        return sum([len(files) for _, _, files in os.walk(path)])
+
+    def __init__(self, path: str):
+        """When creating an object, you must specify a path that is checked for existence."""
+        self.__path = path
+
+    @property
+    def path(self):
+        """Path to the file or folder"""
+        return self.__path
+
+    def get_files(self) -> iter:
+        """Returns the file path generator"""
+        if os.path.isfile(self.__path):
+            return [self.__path]
+        elif os.path.isdir(self.__path):
+            return (os.path.join(p, file) for p, _, files in os.walk(self.__path) for file in files)
+        else:
+            return []
+
+    def get_dirs(self) -> iter:
+        """Returns the folder path generator"""
+        if os.path.isdir(self.path):
+            return self.dirs_path_gen(self.__path)
+        return []
+
+    @property
+    def num_of_files(self):
+        return 1 if os.path.isfile(self.__path) else self.get_num_of_files(self.__path)
+
+    @property
+    def num_of_dirs(self):
+        return self.get_num_of_dirs(self.__path)
+
+    def __str__(self):
+        return f'PathObj({self.__path})'
+
+
+class DataObj:
+
+    def __init__(self):
+        self.__objects = {}
+
+    def get_obj_gen(self):
+        return (obj for obj in self.__objects.values())
+
+    def get_obj_dict(self):
+        return self.__objects
+
+    def add_path(self, path: str) -> bool:
+        if os.path.exists(path) and not self.search_for_duplicates(path) and not os.path.islink(path):
+            self.__objects[path] = PathObj(path)
+            return True
+        return False
+
+    def search_for_duplicates(self, path: str) -> bool:
+        """Checking for duplicates"""
+        return True if path in self.__objects else False
+
+    def del_path(self, path: str) -> bool:
+        """Deleting a path object"""
+        if self.search_for_duplicates(path):
+            del self.__objects[path]
+            return True
+        return False
+
+    def get_files(self) -> iter:
+        """Returns a generator with file paths from all objects"""
+        return (file for obj in self.__objects.values() for file in obj.get_files())
+
+    def get_dirs(self) -> iter:
+        """Getting folders"""
+        return reversed(sorted(path for obj in self.__objects.values() for path in obj.get_dirs()))
+
+    @property
+    def is_any_data(self) -> bool:
+        """Checking for data in repositories"""
+        return True if self.__objects else False
+
+    def clear_data(self) -> None:
+        """Clearing storage"""
+        self.__objects.clear()
+
+
+class Cleaner:
+    """Creates an object for working with file and folder paths
+
+    for further destruction, zeroing, deleting files. Delete a folder.
+    """
+    def __init__(self, root=False, shreds=30):
+        """Accepts an optional parameter when creating an object shred:
+
+        the number of passes to overwrite the file. By default, 30 passes.
+        """
+        self.errors = []
+        self.root = root
+        self.shreds = shreds
+        self.count_zero_files = 0
+        self.count_del_files = 0
+        self.count_del_dirs = 0
+
+    @staticmethod
+    def replace_path(path: str) -> str:
+        return shlex.quote(path)
+
+    @staticmethod
+    def check_exist(path):
+        if os.path.exists(path):
+            return True
+        return False
+
+    def zero_file(self, file: str) -> bool:
+        """Resets the file to the specified path"""
+        try:
+            with open(file, 'wb') as f:
+                f.write(bytes(0))
+        except OSError:
+            self.errors.append(f'Zeroing error: {file}')
+            return False
+        else:
+            self.count_zero_files += 1
+            return True
+
+    def shred_file(self, path: str) -> bool:
+        """Overwrites and deletes the file at the specified path"""
+        rep_path = self.replace_path(path)
+        if os.name == 'posix':
+            if self.root:
+                os.system(f'sudo shred -zvuf -n {self.shreds} {rep_path}')
+            else:
+                os.system(f'shred -zvu -n {self.shreds} {rep_path}')
+        else:
+            self.del_file(path)
+        if self.check_exist(path):
+            self.errors.append(f'Do not shred: {path}')
+            return False
+        else:
+            self.count_del_files += 1
+            return True
+
+    def del_file(self, path: str) -> bool:
+        """Deletes the file at the specified path using normal deletion"""
+        try:
+            if os.path.islink(path):
+                os.unlink(path)
+            else:
+                self.zero_file(path)
+                os.remove(path)
+        except OSError:
+            self.errors.append(f'Os error! Do not delete: {path}')
+            return False
+        if self.check_exist(path):
+            self.errors.append(f'Do not delete: {path}')
+            return False
+        else:
+            self.count_del_files += 1
+            return True
+
+    def del_dir(self, path: str) -> bool:
+        """Deletes an empty folder at the specified path"""
+        try:
+            if os.path.islink(path):
+                os.unlink(path)
+            else:
+                os.rmdir(path)
+        except OSError:
+            self.errors.append(f'Os error! Do not delete: {path}')
+            return False
+        else:
+            if self.check_exist(path):
+                self.errors.append(f'Do not delete: {path}')
+                return False
+            else:
+                self.count_del_dirs += 1
+                return True
+
+    def reset_count(self) -> None:
+        """Resetting counters"""
+        self.count_zero_files = 0
+        self.count_del_files = 0
+        self.count_del_dirs = 0
+
+    def reset_error_list(self):
+        self.errors.clear()
 
 
 class SmartCleaner(QThread):
@@ -28,19 +234,19 @@ class SmartCleaner(QThread):
 
     def __init__(self):
         super().__init__()
-        self.errors = []
         self.shreds = 30
         self.delete_a_folder = False
-        self.cleaner = cleaner.Cleaner(self.shreds)
-        self.path_data = smart.DataObj()
+        self.cleaner = Cleaner()
+        self.path_data = DataObj()
         self.work_method = None
 
     def run(self):
         self.cleaner.reset_count()
         self.clear_errors()
+        self.cleaner.shreds = self.shreds
         self.emit_msg(f'Smart Cleaner report on the work: {datetime.now()}\n'
-                      f' Platform: {"Linux" if os.name == "posix" else "Windows"} '
-                      f"| Passageways: {self.shreds} ")
+                      f' Platform: {"Linux" if os.name == "posix" else "Windows or another"} '
+                      f"| Overwrites: {self.cleaner.shreds} ")
         self.from_start()
         if not self.work_method == 'zero' and self.delete_a_folder:
             self.del_dirs()
@@ -56,23 +262,22 @@ class SmartCleaner(QThread):
                     self.emit_msg('Completed!')
                 else:
                     self.emit_msg(err_msg)
-                    self.errors.append(file)
                 self.emit_msg(self.get_counts)
             else:
                 self.emit_msg('Error! The file does not exist!')
 
     def from_finish(self):
-        if self.errors:
-            self.emit_msg(f'Errors: ')
-            for err in self.errors:
+        if self.cleaner.errors:
+            self.emit_msg(f'Errors: {len(self.cleaner.errors)}')
+            for err in self.cleaner.errors:
                 self.emit_msg(err)
         if self.work_method == 'zero':
             self.emit_msg(f'Reset completed. Reset files: {self.cleaner.count_zero_files} '
-                          f'| Errors: {len(self.errors)}')
+                          f'| Errors: {len(self.cleaner.errors)}')
         else:
             self.emit_msg(f'The deletion is complete. Deleted files: {self.cleaner.count_del_files} '
                           f'| Deleted folders: {self.cleaner.count_del_dirs} '
-                          f'| Errors: {len(self.errors)}')
+                          f'| Errors: {len(self.cleaner.errors)}')
             self.path_data.clear_data()
 
     def start_method(self, file):
@@ -110,7 +315,6 @@ class SmartCleaner(QThread):
                     self.emit_msg('Completed!')
                 else:
                     self.emit_msg('Error when deleting a folder!')
-                    self.errors.append(path)
             else:
                 self.emit_msg('Error! The folder does not exist!')
             self.emit_msg(f'Deleted folders: {self.cleaner.count_del_dirs} '
@@ -120,21 +324,21 @@ class SmartCleaner(QThread):
         self.signal.emit(msg)
 
     def get_errors(self) -> list:
-        return self.errors
+        return self.cleaner.errors
 
     def clear_errors(self) -> None:
-        self.errors.clear()
+        self.cleaner.reset_error_list()
 
     @property
     def num_errors(self) -> int:
-        return len(self.errors)
+        return len(self.cleaner.errors)
 
 
 class MyWindow(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        self.setWindowTitle('Smart Cleaner - utility to destroy, zeroing, deleting files')
+        self.setWindowTitle('Graphical utility for destroying, zeroing, and deleting files')
 
         self.label_donate = QLabel('Copyright (c) 2021, Aleksandr Suvorov | Donate: 4048 4150 0400 5852')
         self.label_donate.setAlignment(Qt.AlignCenter)
@@ -179,7 +383,8 @@ class MyWindow(QWidget):
         self.label_cons = QLabel('Information console:')
 
         self.text_browser = QTextBrowser()
-        self.text_browser.setText(f'Smart Cleaner v{VERSION} \nUtility for overwriting, zeroing, and deleting files')
+        self.text_browser.setText(f'Smart Cleaner v{VERSION} \nUtility for overwriting, zeroing, and deleting files\n'
+                                  f'https://github.com/mysmarthub')
 
         self.btn_console_clear = QPushButton('Reset')
         self.btn_donate = QPushButton('Donate | Sberbank 4276 4417 5763 7686')
@@ -258,11 +463,11 @@ class MyWindow(QWidget):
         self.smart_cleaner.finished.connect(self.at_finish)
 
     def clear_console(self):
-        msg = f'Smart Cleaner v{VERSION} \nUtility for overwriting, zeroing, and deleting files.'
         self.lcd_dirs.display(0)
         self.lcd_files.display(0)
         self.lcd_errors.display(0)
-        self.text_browser.setText(msg)
+        self.text_browser.setText(f'Smart Cleaner v{VERSION} \nUtility for overwriting, zeroing, and deleting files\n'
+                                  f'https://github.com/mysmarthub')
 
     def add_dir(self) -> None:
         path = QFileDialog.getExistingDirectory(self, 'Select the folder to add: ')

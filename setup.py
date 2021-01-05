@@ -3,7 +3,8 @@
 # -----------------------------------------------------------------------------
 # Licensed under the terms of the BSD 3-Clause License
 # (see LICENSE for details)
-# Copyright © 2021 Aleksandr Suvorov
+# https://github.com/mysmarthub
+# Copyright © 2020-2021 Aleksandr Suvorov
 # -----------------------------------------------------------------------------
 from setuptools import setup, find_packages
 from os.path import join, dirname
@@ -12,14 +13,17 @@ PACKAGE = "smartcleaner"
 VERSION = __import__(PACKAGE).__version__
 AUTHOR = __import__(PACKAGE).__author__
 AUTHOR_EMAIL = "myhackband@yandex.ru"
-DESCRIPTION = "Gui utility to destroy, zeroing, deleting files." \
-              " Aleksandr Suvorov | https://github.com/mysmarthub/smartcleaner | Donate: 4276 4417 5763 7686 | 4048 " \
+DESCRIPTION = "Graphical utility for destroying, zeroing, and deleting files, " \
+              "to complicate or completely impossible to restore them." \
+              " Aleksandr Suvorov | https://github.com/mysmarthub/smartcleaner | " \
+              "Donate: 4276 4417 5763 7686 | 4048 " \
               "4150 0400 5852 "
 NAME = "smartcleaner"
 URL = "https://github.com/mysmarthub/smartcleaner"
 LICENSE = 'BSD 3-Clause'
 LONG_DESCRIPTION = open(join(dirname(__file__), 'README.md')).read()
-INSTALL_REQUIRES = open(join(dirname(__file__), 'requirements.txt')).read()
+# INSTALL_REQUIRES = open(join(dirname(__file__), 'requirements.txt')).read()
+INSTALL_REQUIRES = ['pyside2', ]
 PLATFORM = ['Linux, Windows']
 CLASSIFIERS = [
     "License :: OSI Approved :: BSD License",
@@ -48,7 +52,8 @@ KEYWORDS = [
     'my cleaner',
     'aleksandr suvorov',
     'smart-py.ru',
-    'hack band'
+    'hack band',
+    'smart files destroyer'
 ]
 setup(
     name=NAME,
