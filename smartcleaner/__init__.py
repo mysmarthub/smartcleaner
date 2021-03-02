@@ -10,5 +10,5 @@
 
 to complicate or completely impossible to restore them.
 """
-__version__ = '1.1.0'
+__version__ = '1.1.1'
 __author__ = 'Aleksandr Suvorov'

@@ -44,9 +44,7 @@ Help the project financially:
 >Yandex Money:
 https://yoomoney.ru/to/4100115206129186
 
->Visa: `4048 4150 0400 5852`
-
-> Sberbank Russia: `4276 4417 5763 7686`
+>Visa: `4048 0250 0089 5923`
 
 > https://paypal.me/myhackband
 
@@ -163,7 +161,25 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+-------------
+Requirements:
+-------------
+
+The program uses [Pyside2](https://github.com/PySide)
+
+
+[Python 3+](https://python.org)
+
+--------
 Support:
----
-    Email: myhackband@yandex.ru
+--------
+    Email: mysmarthub@ya.ru
     Copyright © 2020 Aleksandr Suvorov
+    
+    -----------------------------------------------------------------------------
+    Licensed under the terms of the BSD 3-Clause License
+    (see LICENSE for details)
+    https://github.com/mysmarthub
+    Copyright © 2020-2021 Aleksandr Suvorov
+    -----------------------------------------------------------------------------
+

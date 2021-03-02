@@ -23,7 +23,7 @@ from PySide2.QtWidgets import (QApplication, QFileDialog, QMessageBox, QLabel, Q
 from PySide2.QtCore import QThread, Signal
 
 
-VERSION = '1.1.0'
+VERSION = '1.1.1'
 
 
 class PathObj:
@@ -340,7 +340,7 @@ class MyWindow(QWidget):
 
         self.setWindowTitle('Graphical utility for destroying, zeroing, and deleting files')
 
-        self.label_donate = QLabel('Copyright (c) 2021, Aleksandr Suvorov | Donate: 4048 4150 0400 5852')
+        self.label_donate = QLabel('Copyright (c) 2021, Aleksandr Suvorov | Donate: 4048 0250 0089 5923')
         self.label_donate.setAlignment(Qt.AlignCenter)
 
         self.label_logo = QLabel(f'Smart Cleaner<sup> {VERSION}</sup>')
@@ -387,7 +387,7 @@ class MyWindow(QWidget):
                                   f'https://github.com/mysmarthub')
 
         self.btn_console_clear = QPushButton('Reset')
-        self.btn_donate = QPushButton('Donate | Sberbank 4276 4417 5763 7686')
+        self.btn_donate = QPushButton('Donate | Visa: 4048 0250 0089 5923')
         self.btn_donate.setToolTip('We will be grateful for any financial support.\nThis will help the program '
                                    'develop and remain free.\nThanks!')
         self.btn_exit = QPushButton('Exit')
