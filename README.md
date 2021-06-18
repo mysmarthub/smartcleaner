@@ -4,6 +4,11 @@ Smart Cleaner
 >Graphical utility for destroying, zeroing, and deleting files, 
 > to complicate or completely impossible to restore them.
 
+> [Shred](https://github.com/smartlegion/shred/) - A package of modules for destroying files.
+> 
+> [Shredi](https://github.com/smartlegion/shredi/) - Console utility for destroying files. Secure file overwriting, deletion, and destruction, both in manual and automatic modes, * without the possibility of recovery.
+
+
 ```
 -----------------------------------------------------------------------------
 Licensed under the terms of the BSD 3-Clause License
