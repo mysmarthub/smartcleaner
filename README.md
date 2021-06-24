@@ -1,24 +1,14 @@
-Smart Cleaner
-==============
+# Smart Cleaner
 
->Graphical utility for destroying, zeroing, and deleting files, 
+***
+
+> Graphical utility for destroying, zeroing, and deleting files, 
 > to complicate or completely impossible to restore them.
 
-> [Shred](https://github.com/smartlegion/shred/) - A package of modules for destroying files.
-> 
-> [Shredi](https://github.com/smartlegion/shredi/) - Console utility for destroying files. Secure file overwriting, deletion, and destruction, both in manual and automatic modes, * without the possibility of recovery.
+- [Shred](https://github.com/smartlegion/shred/) - A package of modules for destroying files.
+- [Shredi](https://github.com/smartlegion/shredi/) - Console utility for destroying files. Secure file overwriting, deletion, and destruction, both in manual and automatic modes, * without the possibility of recovery.
 
-
-```
------------------------------------------------------------------------------
-Licensed under the terms of the BSD 3-Clause License
-(see LICENSE for details)
-https://github.com/mysmarthub
-Copyright © 2020-2021 Aleksandr Suvorov
------------------------------------------------------------------------------
-
-```
----
+***
 
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/smartcleaner?label=pypi%20downloads)](https://pypi.org/project/smartcleaner)
 [![PyPI](https://img.shields.io/pypi/v/smartcleaner)](https://pypi.org/project/smartcleaner)
@@ -44,55 +34,54 @@ Smart Cleaner (Windows version) download smart_cleaner.exe:
 
 ---
 
-Help the project financially:
----
->Yandex Money:
-https://yoomoney.ru/to/4100115206129186
+# Help the project financially:
 
->Visa: `4048 0250 0089 5923`
+- Yandex Money: https://yoomoney.ru/to/4100115206129186
 
-> https://paypal.me/myhackband
+- Visa: `4048 0250 0089 5923`
 
----
+- https://paypal.me/myhackband
 
-Description:
----
+***
 
-Warning:
----
-> Be extremely careful when working with the utility. 
-> Destroyed data cannot be restored!
-> 
-> If you add a folder, all nested files in all nested folders 
-> will be destroyed recursively!
+# Description:
+
+
+___Warning:___
+
+__Be extremely careful when working with the utility. 
+Destroyed data cannot be restored!__
+
+If you add a folder, all nested files in all nested folders 
+will be destroyed recursively!
 
 The program allows you to:
----
-0. Moving through the file system, add and exclude files 
-   and folders for further work with them.
----
-1. Destroy files by multiple rewrites using shred on Linux, 
-  and the reset and delete method on Windows
----
-2. Zeroing files, all information from the file is deleted, 
+
+- Moving through the file system, add and exclude files 
+and folders for further work with them.
+
+- Destroy files by multiple rewrites using shred on Linux, 
+and the reset and delete method on Windows
+
+- Zeroing files, all information from the file is deleted, 
    the file size is 0b (especially convenient for large files 
    to speed up work, first zeroing, then destroying)
----
-3. Reset + delete. Before deleting, 
+
+- Reset + delete. Before deleting, 
    all information in the file is erased, 
    the file size becomes 0b, and then the file is deleted.
----
-4. Deleting folders after destroying all files in them. 
+
+- Deleting folders after destroying all files in them. 
    (If raw files will remain in some folder, and the folder will not be deleted)
----
-5. Displays the number of processed files, folders, and errors.
----
-6. Displays information about the work and errors that occurred 
+
+- Displays the number of processed files, folders, and errors.
+
+- Displays information about the work and errors that occurred 
    when working with files and folders in the information console.
----
-7. Select the number of file overwrites.
----
-> The program uses [Pyside2](https://github.com/PySide)
+
+- Select the number of file overwrites.
+
+- The program uses [Pyside2](https://github.com/PySide)
 
 > It is recommended to use Smart Cleaner on Linux systems. 
 > If you need to destroy files in Windows, 
@@ -112,72 +101,75 @@ The program allows you to:
 > all this is because the utility goes through 
 > folders and performs actions with files.
 
----
-Help:
----
-> You can install the program using pip or pip3:
+***
 
-> Install: `pip install smartcleaner` or `pip3 install smartcleaner`
-> 
-> Launch: `smartcleaner`
+# Help:
+
+You can install the program using pip or pip3:
+
+- `pip3 install smartcleaner`
+
+- `smartcleaner`
 
 >To erase/delete some files, you need to run as an administrator:
 
-`sudo pip install smartcleaner`
+- `sudo pip install smartcleaner`
 
-`sudo smartcleaner`
+- `sudo smartcleaner`
 
----
+***
 
-`sudo apt install git`
+- `sudo apt install git`
 
-`git clone https://github.com/mysmarthub/smartcleaner.git`
+- `git clone https://github.com/mysmarthub/smartcleaner.git`
 
-`pip install -r smartcleaner/requirements.txt`
+- `pip install -r smartcleaner/requirements.txt`
     
-`python smartcleaner/smartcleaner/smart_cleaner.py` or `python3 smartcleaner/smartcleaner/smart_cleaner.py`
+- `python smartcleaner/smartcleaner/smart_cleaner.py` or `python3 smartcleaner/smartcleaner/smart_cleaner.py`
 
 >To erase/delete some files, you need to run as an administrator:
 
-`sudo pip3 install -r requirements.txt`
+- `sudo pip3 install -r requirements.txt`
 
-`sudo python smartcleaner/smartcleaner/smart_cleaner.py`
+- `sudo python smartcleaner/smartcleaner/smart_cleaner.py`
 
----
+***
 
-Links:
----
->[GitHub Smart Cleaner](https://github.com/mysmarthub/smartcleaner)
-> 
->[PyPi smartcleaner](https://pypi.org/project/smartcleaner/)
-> 
->[Smart Cleaner](https://sourceforge.net/projects/smartcleaner/files/latest/download)
->
->[Smart Cleaner (For Windows)](https://sourceforge.net/projects/smart-cleaner-for-windows/files/latest/download)
----
+# Links:
 
-Disclaimer of liability:
-------------------------
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+- [GitHub Smart Cleaner](https://github.com/mysmarthub/smartcleaner)
 
--------------
-Requirements:
--------------
+- [PyPi smartcleaner](https://pypi.org/project/smartcleaner/)
 
-The program uses [Pyside2](https://github.com/PySide)
+- [Smart Cleaner](https://sourceforge.net/projects/smartcleaner/files/latest/download)
+
+- [Smart Cleaner (For Windows)](https://sourceforge.net/projects/smart-cleaner-for-windows/files/latest/download)
+
+***
+
+# Disclaimer of liability:
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+
+***
+
+# Requirements:
 
 
-[Python 3+](https://python.org)
+- The program uses [Pyside2](https://github.com/PySide)
 
---------
-Support:
---------
+- [Python 3+](https://python.org)
+
+***
+
+# Support:
+
     Email: mysmarthub@ya.ru
     Copyright © 2020 Aleksandr Suvorov
     
